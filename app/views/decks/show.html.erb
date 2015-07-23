@@ -1,0 +1,17 @@
+<%= link_to "Decks", deck_path %>
+<h2><%= @deck.name %></h2>
+
+<% @cards.each do |card| %>
+	<div>
+		<%= link_to card.front, [@deck, card] %>
+
+		<%= link_to "Edit", edit_deck_card_path(@deck, card) %>
+
+		<%= link_to "Delete", [@deck, card], method: :delete, confirm: "Are you sure?" %>
+	</div>
+
+<% end %>
+
+<%= link_to "Add a new card", new_deck_card_path(@deck) %>
+ 
+
